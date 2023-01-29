@@ -40,8 +40,12 @@ make
 make install
 
 # user dict
-cat $PROJECT_HOME/dict/nnp.csv >> ./user-dic/nnp.csv
-./tools/add-userdic.sh
+cat $PROJECT_HOME/dict/nnp.csv >> ./user-nnp.csv
+make clean
+./autogen.sh
+./configure --prefix=$PROJECT_HOME/mecab
+make
+make install
 
 # clean up
 rm -rf $BUILD_PATH
